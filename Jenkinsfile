@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                  withCredentials([string(credentialsId: 'dffb01df-666b-48cb-9306-48517ce92f6d', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u devopshint -p ${dockerhubpwd}'
+                    sh 'docker login -u deepak.gole8@gmail.com -p ${dockerhubpwd}'
                  }  
                  sh 'docker push deepakgole/dgdevops:latest'
                 }

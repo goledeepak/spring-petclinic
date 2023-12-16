@@ -25,8 +25,8 @@ pipeline {
         stage('Deploy Docker Image') {
             steps {
                 script {
-                 withCredentials([string(credentialsId: 'dffb01df-666b-48cb-9306-48517ce92f6d', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u deepak.gole8@gmail.com -p ${dockerhubpwd}'
+                 withCredentials([usernamePassword(credentialsId: 'dffb01df-666b-48cb-9306-48517ce92f6d', usernameVariable: 'USERNAME', passwordVariable: 'dockerhubpwd')]) {
+				    sh 'docker login -u ${USERNAME} -p ${dockerhubpwd}'
                  }  
                  sh 'docker push deepakgole/dgdevops:latest'
                 }

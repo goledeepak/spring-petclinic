@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: default-1702589993925
+spec:
+  finalizers:
+    - kubernetes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dgdevops
+  namespace: default-1702589993925
+imagePullSecrets:
+  name: dgdevops-secret
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dgdevops
+  template:
+    metadata:
+      labels:
+        app: dgdevops
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+        - name: dgdevops
+          image: deepakgole/dgdevops
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128M
+            limits:
+              cpu: '256'
+              memory: 11400G
+apiVersion: v1
+kind: Service
+metadata:
+  name: dgdevops-service
+  namespace: default-1702589993925
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: 8080
+      name: port80
+      port: 8080
+      protocol: TCP
+  selector:
+    app: dgdevops
+apiVersion: v1
+kind: Secret
+data:
+  .dockerconfigjson: >-
+    eyJhdXRocyI6eyJpbmRleC5kb2NrZXIuaW8iOnsidXNlcm5hbWUiOiJkZWVwYWtnb2xlIiwicGFzc3dvcmQiOiJEZXZvcHNkb2NrZXI4MUAiLCJhdXRoIjoiWkdWbGNHRnJaMjlzWlRwRVpYWnZjSE5rYjJOclpYSTRNVUE9In19fQ==
+metadata:
+  name: dgdevops-secret
+  namespace: default-1702589993925

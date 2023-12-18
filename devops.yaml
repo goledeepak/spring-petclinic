@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: new_demo
+  name: newdemo
 spec:
   finalizers:
     - kubernetes
@@ -9,7 +9,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dgdevops
-  namespace: new_demo
+  namespace: newdemo
 spec:
   replicas: 1
   selector:
@@ -38,7 +38,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dgdevops-service
-  namespace: new_demo
+  namespace: newdemo
 spec:
   type: LoadBalancer
   ports:

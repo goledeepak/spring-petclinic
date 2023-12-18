@@ -13,7 +13,11 @@ pipeline {
             steps {
                 script {
 					withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8SAzureConfigFile', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-						sh "kubectl apply -f devops.yaml"
+						try{
+							sh "kubectl create -f devops.yaml"
+						}catch(error){
+							sh "kubectl apply -f devops.yaml"
+						}
 					}
                 }
             }

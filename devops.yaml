@@ -50,11 +50,3 @@ spec:
       protocol: TCP
   selector:
     app: dgdevops
-apiVersion: v1
-kind: Secret
-data:
-  .dockerconfigjson: >-
-    eyJhdXRocyI6eyJpbmRleC5kb2NrZXIuaW8iOnsidXNlcm5hbWUiOiJkZWVwYWtnb2xlIiwicGFzc3dvcmQiOiJEZXZvcHNkb2NrZXI4MUAiLCJhdXRoIjoiWkdWbGNHRnJaMjlzWlRwRVpYWnZjSE5rYjJOclpYSTRNVUE9In19fQ==
-metadata:
-  name: dgdevops-secret
-  namespace: default-1702589993925

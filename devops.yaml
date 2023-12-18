@@ -10,8 +10,6 @@ kind: Deployment
 metadata:
   name: dgdevops
   namespace: default-1702589993925
-imagePullSecrets:
-  name: dgdevops-secret
 spec:
   replicas: 1
   selector:

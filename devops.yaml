@@ -26,6 +26,7 @@ spec:
       containers:
         - name: dgdevops
           image: deepakgole/dgdevops
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           resources:

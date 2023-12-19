@@ -43,6 +43,8 @@ pipeline {
 						}catch(error){
 							sh "kubectl apply -f devops.yaml"
 						}
+						
+						sh "kubectl rollout restart deployment/dgdevops"
 					}
                 }
             }

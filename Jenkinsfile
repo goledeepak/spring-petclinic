@@ -44,7 +44,7 @@ pipeline {
 							sh "kubectl apply -f devops.yaml"
 						}
 						
-						sh "kubectl set image deployment/dgdevops dgdevops=deepakgole/dgdevops:latest"
+						sh "kubectl rollout restart deployment"
 					}
                 }
             }

@@ -44,7 +44,7 @@ pipeline {
 							sh "kubectl apply -f devops.yaml"
 						}
 						
-						sh "kubectl rollout restart deployment/dgdevops"
+						sh "kubectl rollout restart deployment.apps/dgdevops"
 					}
                 }
             }

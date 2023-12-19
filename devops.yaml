@@ -25,8 +25,7 @@ spec:
         kubernetes.io/os: linux
       containers:
         - name: dgdevops
-          image: deepakgole/dgdevops:latest
-          imagePullPolicy: Always
+          image: deepakgole/dgdevops:latest          
           ports:
             - containerPort: 8080
           resources:

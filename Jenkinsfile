@@ -43,7 +43,7 @@ pipeline {
 						}catch(error){
 							sh "kubectl apply -f devops.yaml"
 						}
-						
+						sh "kubectl config set-context --current --namespace=newdemo"
 						sh "kubectl rollout restart deployment"
 					}
                 }

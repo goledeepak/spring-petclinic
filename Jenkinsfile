@@ -39,9 +39,9 @@ pipeline {
                 script {
 					withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8SAzureConfigFile', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
 						try{
-							sh "kubectl create -f devops.yaml"
+							sh "kubectl create -f deploy-app.yaml"
 						}catch(error){
-							sh "kubectl apply -f devops.yaml"
+							sh "kubectl apply -f deploy-app.yaml"
 						}
 						sh "kubectl config set-context --current --namespace=newdemo"
 						sh "kubectl rollout restart deployment"

@@ -16,6 +16,11 @@ spec:
   selector:
     matchLabels:
       app: dgdevops
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       labels:

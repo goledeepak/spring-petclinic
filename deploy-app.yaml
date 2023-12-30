@@ -12,7 +12,7 @@ metadata:
   name: dgdevops
   namespace: newdemo
 spec:
-  replicas: 1   
+  replicas: 4   
   selector:
     matchLabels:
       app: dgdevops

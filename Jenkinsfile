@@ -45,7 +45,6 @@ pipeline {
 						}
 						sh "kubectl config set-context --current --namespace=newdemo"
 						sh "kubectl rollout restart deployments/dgdevops"
-						//sh "kubectl rollout restart deployment/dgdevops"
 					}
                 }
             }
